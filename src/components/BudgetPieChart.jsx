@@ -80,7 +80,7 @@ export default function BudgetPieChart({ allocations, income = 0 }) {
             </div>
 
             {totalPercent > 0 ? (
-                <div className="w-full h-full flex flex-col lg:flex-row items-center justify-center relative z-10 gap-6 lg:gap-2">
+                <div className="w-full flex-1 min-h-0 flex flex-col lg:flex-row items-center justify-center relative z-10 gap-6 lg:gap-2 overflow-hidden">
                     <div className="w-full lg:w-1/2 shrink-0 h-72 sm:h-80 lg:h-[450px] relative z-10">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
@@ -125,8 +125,8 @@ export default function BudgetPieChart({ allocations, income = 0 }) {
                         </div>
                     </div>
 
-                    {/* Detailed Breakdown Sidebar (No Scroll) */}
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center gap-3">
+                    {/* Detailed Breakdown Sidebar */}
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center gap-3 overflow-y-auto lg:self-stretch lg:justify-start lg:py-2 pr-1">
                         {data.map((item, index) => {
                             const amount = (income * item.value) / 100;
                             const color = COLORS[index % COLORS.length];
