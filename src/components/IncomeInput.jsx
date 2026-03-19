@@ -13,7 +13,7 @@ export default function IncomeInput({ income, onIncomeChange, error }) {
             {/* Animated glowing border top */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 opacity-70 group-hover:opacity-100 transition-opacity"></div>
 
-            <h2 className="text-xl font-bold mb-5 text-white flex items-center gap-3">
+            <h2 className="text-xl font-bold mb-5 flex items-center gap-3">
                 <div className="p-2 bg-indigo-500/20 rounded-lg text-indigo-400">
                     <IndianRupee className="w-5 h-5" />
                 </div>

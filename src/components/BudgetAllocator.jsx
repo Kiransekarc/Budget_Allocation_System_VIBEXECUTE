@@ -39,16 +39,24 @@ export default function BudgetAllocator({ allocations, onAllocationChange, total
                     Budget Allocation
                 </h2>
 
-                <motion.div
-                    animate={{ scale: isOverAllocated ? [1, 1.05, 1] : 1 }}
-                    transition={{ repeat: isOverAllocated ? Infinity : 0, duration: 1 }}
-                    className={`px-4 py-1.5 text-sm font-bold rounded-full border backdrop-blur-md ${isOverAllocated
-                        ? 'bg-red-500/20 text-red-300 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.3)]'
-                        : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30'
-                        }`}
-                >
-                    Total: {totalPercentage.toFixed(1)}%
-                </motion.div>
+                <div className="flex flex-col items-end gap-1">
+                    <motion.div
+                        animate={{ scale: isOverAllocated ? [1, 1.05, 1] : 1 }}
+                        transition={{ repeat: isOverAllocated ? Infinity : 0, duration: 1 }}
+                        className={`px-4 py-1.5 text-sm font-bold rounded-full border backdrop-blur-md ${isOverAllocated
+                            ? 'bg-red-500/20 text-red-300 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.3)]'
+                            : totalPercentage > 90 ? 'bg-amber-500/20 text-amber-300 border-amber-500/50' : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                            }`}
+                    >
+                        Total: {totalPercentage.toFixed(1)}%
+                    </motion.div>
+                    {totalPercentage < 100 && incomeNum > 0 && (
+                        <p className="text-xs text-emerald-400 font-medium">unallocated: {(100 - totalPercentage).toFixed(1)}%</p>
+                    )}
+                    {totalPercentage === 100 && incomeNum > 0 && (
+                        <p className="text-xs text-blue-400 font-medium">Budget fully allocated</p>
+                    )}
+                </div>
             </div>
 
             <AnimatePresence>
