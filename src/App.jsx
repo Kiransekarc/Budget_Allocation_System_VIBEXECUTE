@@ -139,9 +139,10 @@ function App() {
             
             <motion.button
               onClick={() => window.print()}
-              className="flex items-center gap-2 px-4 py-2 "      >
+              className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold rounded-xl transition-colors cursor-pointer shadow-lg backdrop-blur-md"
+            >
               <Download className="w-4 h-4 text-white" />
-              Export PDF
+              <span className="hidden sm:inline">Export PDF</span>
             </motion.button>
           </div>
         </div>
@@ -153,10 +154,10 @@ function App() {
         {/* Subtle top glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-32 bg-indigo-500/20 rounded-full blur-[100px] pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
           {/* Left Column: Inputs */}
-          <div className="lg:col-span-5 space-y-8 flex flex-col h-full">
+          <div className="lg:col-span-5 space-y-6 flex flex-col">
             <IncomeInput
               income={income}
               onIncomeChange={handleStrictIncomeChange}
@@ -174,14 +175,14 @@ function App() {
           </div>
 
           {/* Right Column: Visualization & Summary */}
-          <div className="lg:col-span-7 space-y-8 flex flex-col lg:sticky lg:top-32 lg:h-[calc(100vh-160px)] z-10">
+          <div className="lg:col-span-7 space-y-6 flex flex-col lg:sticky lg:top-24 lg:h-[calc(100vh-120px)] z-10">
             <BudgetSummary
               income={incomeNum}
               allocatedAmount={allocatedAmount}
               remainingBalance={remainingBalance}
             />
 
-            <div className="flex-1 min-h-[450px]">
+            <div className="flex-1 min-h-[400px]">
               <BudgetPieChart allocations={allocations} income={incomeNum} />
             </div>
           </div>

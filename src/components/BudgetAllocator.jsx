@@ -85,11 +85,11 @@ export default function BudgetAllocator({ allocations, onAllocationChange, total
                             key={category.id}
                             className="group"
                         >
-                            <div className="flex flex-col xl:flex-row xl:justify-between xl:items-end mb-3 gap-3">
+                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-3 gap-2">
                                 <label htmlFor={category.id} className={`font-semibold text-lg tracking-wide ${category.color} drop-shadow-md`}>
                                     {category.label}
                                 </label>
-                                <div className="flex items-center gap-3 self-start xl:self-auto bg-slate-800/50 p-1.5 rounded-lg border border-slate-700/50 min-w-0 max-w-full overflow-hidden">
+                                <div className="flex items-center gap-2 self-start sm:self-auto bg-slate-800/50 p-1.5 rounded-lg border border-slate-700/50 min-w-0 max-w-full overflow-hidden">
                                     {/* Amount Input */}
                                     <div className="relative flex items-center min-w-0">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
